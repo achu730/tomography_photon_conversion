@@ -1,0 +1,349 @@
+defaults:
+    application: DaVinci/v67r3
+    wg: BandQ
+    inform:
+        - achu
+
+############################################################################################
+{%- set entrypoints = [
+  ("Bu_pi0mumu", "12511402", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim01", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+
+############################################################################################
+{%- set entrypoints = [
+  ("Bu_etamunu", "12511403", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim01", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+
+
+############################################################################################
+{%- set entrypoints = [
+  ("Bu_Pi0ENu", "12521402", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim01", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bu_EtaENu", "12521403", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim01", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bd_Ksteta", "11102441", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim02", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bd_pimumu", "11112401", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim02", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bd_Jpsipi", "11142402", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim02", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bd_etamumu", "11412200", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim02", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bs_PhiEta", "13102464", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim02", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
+
+
+############################################################################################
+
+{%- set entrypoints = [
+  ("Bs_Phipi0", "13102465", "Hlt2"),
+]%}
+
+#sim10g configuration
+{%- set MC_conditions = [
+  ("MagDown", "MagDown", "7.6", "7_6", "2025-v00.03", "sim10-2025.W21-v00.00-md100", "Block6_W21_sim10g", "2025", "2025.W21", "Sim10g-SplitSim02", "W21.25v2"),
+]%}
+{%- for module, eventtype, dv_input_process in entrypoints %}
+  {%- for polarity_mc, polarity_mc_jobtitle, nu, n_u, dddb, conddb, mcversion_jobtitle, BKK_label1, BKK_label2, simversion, week in MC_conditions %}
+
+
+MC_{{module}}_{{eventtype}}_Nu{{n_u}}_{{polarity_mc_jobtitle}}_{{mcversion_jobtitle}}_ROOT_MC:
+    application: "DaVinci/v67r3@x86_64_v3-el9-gcc15+detdesc-opt"
+    input:
+        bk_query: "/MC/{{BKK_label1}}/Beam6800GeV-{{BKK_label2}}-{{ polarity_mc }}-Nu{{ nu }}-25ns-Pythia8/{{simversion}}/HLT2-2025.{{week}}/{{ eventtype }}/HLT2.DST"
+        keep_running: true
+    output: B2JPSIX_{{module}}.ROOT
+    options:
+        entrypoint: tomography_photon_conversion.tools.dv_simple_auto_MC:main
+        extra_options:
+            input_raw_format: 0.5
+            conddb_tag: {{ conddb }}
+            dddb_tag: {{ dddb }}
+            input_type: ROOT
+            simulation: True
+            data_type: "Upgrade"
+            input_process: "Hlt2"
+            input_stream: "default"
+  {%- endfor %}
+{%- endfor %}
